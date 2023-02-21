@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Flex Playground</title>
+    <style>
+      /* 
+        FLEXIBLE BOX LAYOUT
+        (aka Flexbox aka your best friend)
+        - allows you to position items within a container
+        along either the vertical or horizontal axis
+        (rows or columns
+        - have different properties for the container 
+        and for the items/children
+      */
+      .flex-container {
+        display: flex; /* enter flexbot layout */
+      }
+
+      /* target the first example */
+      .flex-container:nth-of-type(1) {
+        flex-direction: column;
+        /* add a gap between elements */
+        gap: 10px;
+        /* choose where things get put along the
+        secondary axis  */
+        align-items: stretch;
+      }
+
+      .flex-container:nth-of-type(1) .flex-item {
+        max-width: 100px;
+      }
+
+      /* target the second example */
+      .flex-container:nth-of-type(2) {
+        flex-direction: row; /* default */
+        gap: 10px;
+        /* position along primary axis */
+        justify-content: space-between;
+        /* make height of container larger */
+        height: 500px;
+        /* secondary axis */
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .flex-item {
+        max-width: 100px;
+      }
+
+      .flex-container:nth-of-type(2) .flex-item:nth-of-type(2) {
+        flex: 2; /* all items should grow evenly */
+      }
+
+      flex-container:nth-of-type(2) .flex-item:not(:nth-of-type(2)) {
+        flex: 1; /* all items should grow evenly */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">Item 1</div>
+      <div class="flex-item">Item 2</div>
+      <div class="flex-item">Item 3</div>
+    </div>
+    <div class="flex-container">
+      <div class="flex-item">Item 1</div>
+      <div class="flex-item">Item 2</div>
+      <div class="flex-item">Item 3</div>
+    </div>
+  </body>
+</html>
